@@ -1,6 +1,6 @@
 # fullWebView
 
-[APK unsigned](https://github.com/degratnik/fullWebView/raw/master/app/build/outputs/apk/debug/app-debug.apk)
+[APK unsigned](https://www.dropbox.com/s/d3k9jdvuuqm31tu/app-release2.apk?dl=0)
 
 A simple web browser based on WebView:
 - shows selected site in fullscreen mode;

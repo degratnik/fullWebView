@@ -27,6 +27,24 @@ public class FullscreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+        setContentView(R.layout.activity_fullscreen);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        loadUrl();
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setFull();
+    }
+
+    protected void setFull() {
         if (Build.VERSION.SDK_INT < 16) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -38,13 +56,6 @@ public class FullscreenActivity extends AppCompatActivity {
             int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
             decorView.setSystemUiVisibility(uiOptions);
         }
-
-        setContentView(R.layout.activity_fullscreen);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        loadUrl();
-
-
     }
 
     private void loadUrl() {
@@ -57,7 +68,7 @@ public class FullscreenActivity extends AppCompatActivity {
         String defaultValue = getResources().getString(R.string.url);
         String url = sharedPref.getString(getString(R.string.url), defaultValue);
         myWebView.loadUrl(url);
-
+        setFull();
 
     }
 
